@@ -1,5 +1,7 @@
-package it.xpug.kata.birthday_greetings
+package it.xpug.kata.birthday_greetings.domain.service
 
+import it.xpug.kata.birthday_greetings.domain.model.Employee
+import it.xpug.kata.birthday_greetings.domain.model.XDate
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.*
