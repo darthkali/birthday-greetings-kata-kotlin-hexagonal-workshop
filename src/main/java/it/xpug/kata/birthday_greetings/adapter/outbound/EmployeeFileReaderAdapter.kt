@@ -1,6 +1,6 @@
 package it.xpug.kata.birthday_greetings.adapter.outbound
 
-import it.xpug.kata.birthday_greetings.Employee
+import it.xpug.kata.birthday_greetings.domain.model.Employee
 import it.xpug.kata.birthday_greetings.domain.port.outbound.ForLoadingEmployees
 import java.io.BufferedReader
 import java.io.FileReader

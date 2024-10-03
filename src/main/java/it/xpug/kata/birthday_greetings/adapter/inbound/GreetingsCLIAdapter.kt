@@ -1,7 +1,7 @@
 package it.xpug.kata.birthday_greetings.adapter.inbound
 
-import it.xpug.kata.birthday_greetings.BirthdayService
-import it.xpug.kata.birthday_greetings.XDate
+import it.xpug.kata.birthday_greetings.domain.service.BirthdayService
+import it.xpug.kata.birthday_greetings.domain.model.XDate
 
 class GreetingsCLIAdapter(private val birthdayService: BirthdayService) {
     fun sendGreetings(args: Array<String>, smtpHost: String, smtpPort: Int){

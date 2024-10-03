@@ -1,5 +1,6 @@
 package it.xpug.kata.birthday_greetings
 
+import it.xpug.kata.birthday_greetings.domain.model.Employee
 import it.xpug.kata.birthday_greetings.domain.port.outbound.ForLoadingEmployees
 
 class EmployeeFileReaderAdapterMock(private val employeeList: List<Employee>):ForLoadingEmployees {

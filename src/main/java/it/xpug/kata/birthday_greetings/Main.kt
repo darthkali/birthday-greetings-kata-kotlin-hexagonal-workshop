@@ -2,6 +2,7 @@ package it.xpug.kata.birthday_greetings
 
 import it.xpug.kata.birthday_greetings.adapter.inbound.GreetingsCLIAdapter
 import it.xpug.kata.birthday_greetings.adapter.outbound.EmployeeFileReaderAdapter
+import it.xpug.kata.birthday_greetings.domain.service.BirthdayService
 
 object Main {
     @JvmStatic
