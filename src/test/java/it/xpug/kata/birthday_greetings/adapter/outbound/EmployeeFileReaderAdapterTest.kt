@@ -1,6 +1,6 @@
 package it.xpug.kata.birthday_greetings.adapter.outbound
 
-import it.xpug.kata.birthday_greetings.Employee
+import it.xpug.kata.birthday_greetings.domain.model.Employee
 import junit.framework.TestCase
 
 class EmployeeFileReaderAdapterTest : TestCase() {
