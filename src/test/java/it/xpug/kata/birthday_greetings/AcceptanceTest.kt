@@ -15,7 +15,11 @@ class AcceptanceTest {
     @Before
     fun setUp() {
         mailServer = SimpleSmtpServer.start(NONSTANDARD_PORT)
-        birthdayService = BirthdayService(EmployeeFileReaderAdapter("employee_data.txt"))
+        val employeeList = listOf(
+            Employee(firstName = "John", lastName = "Doe", birthDate = "1982/10/08", email = "john.doe@foobar.com"),
+            Employee(firstName = "Mary", lastName = "Ann", birthDate = "1975/03/11", email = "mary.ann@foobar.com"),
+            )
+        birthdayService = BirthdayService(EmployeeFileReaderAdapterMock(employeeList))
     }
 
     @After
