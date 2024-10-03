@@ -3,6 +3,8 @@ package it.xpug.kata.birthday_greetings
 import com.dumbster.smtp.SimpleSmtpServer
 import com.dumbster.smtp.SmtpMessage
 import it.xpug.kata.birthday_greetings.adapter.outbound.EmployeeFileReaderAdapter
+import it.xpug.kata.birthday_greetings.domain.model.XDate
+import it.xpug.kata.birthday_greetings.domain.service.BirthdayService
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
