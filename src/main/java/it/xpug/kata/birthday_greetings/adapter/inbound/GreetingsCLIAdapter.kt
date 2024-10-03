@@ -4,8 +4,8 @@ import it.xpug.kata.birthday_greetings.domain.service.BirthdayService
 import it.xpug.kata.birthday_greetings.domain.model.XDate
 
 class GreetingsCLIAdapter(private val birthdayService: BirthdayService) {
-    fun sendGreetings(args: Array<String>, smtpHost: String, smtpPort: Int){
+    fun sendGreetings(args: Array<String>){
         val date = args.get(0)
-        birthdayService.sendGreetings(XDate(date), smtpHost, smtpPort)
+        birthdayService.sendGreetings(XDate(date))
     }
 }

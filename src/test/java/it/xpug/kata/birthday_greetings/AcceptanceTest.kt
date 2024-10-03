@@ -2,6 +2,7 @@ package it.xpug.kata.birthday_greetings
 
 import com.dumbster.smtp.SimpleSmtpServer
 import com.dumbster.smtp.SmtpMessage
+import it.xpug.kata.birthday_greetings.adapter.outbound.SmtpAdapter
 import it.xpug.kata.birthday_greetings.domain.model.Employee
 import it.xpug.kata.birthday_greetings.domain.model.XDate
 import it.xpug.kata.birthday_greetings.domain.service.BirthdayService
@@ -21,7 +22,10 @@ class AcceptanceTest {
             Employee(firstName = "John", lastName = "Doe", birthDate = "1982/10/08", email = "john.doe@foobar.com"),
             Employee(firstName = "Mary", lastName = "Ann", birthDate = "1975/03/11", email = "mary.ann@foobar.com"),
             )
-        birthdayService = BirthdayService(EmployeeFileReaderAdapterMock(employeeList))
+        birthdayService = BirthdayService(
+            EmployeeFileReaderAdapterMock(employeeList),
+            SmtpAdapter("localhost", NONSTANDARD_PORT)
+        )
     }
 
     @After
@@ -33,7 +37,7 @@ class AcceptanceTest {
     @Test
     @Throws(Exception::class)
     fun willSendGreetings_whenItsSomebodysBirthday() {
-        birthdayService.sendGreetings(XDate("2008/10/08"), "localhost", NONSTANDARD_PORT)
+        birthdayService.sendGreetings(XDate("2008/10/08"))
 
         Assert.assertEquals("message not sent?", 1, mailServer.receivedEmailSize.toLong())
         val message = mailServer.receivedEmail.next() as SmtpMessage
@@ -47,7 +51,7 @@ class AcceptanceTest {
     @Test
     @Throws(Exception::class)
     fun willNotSendEmailsWhenNobodysBirthday() {
-        birthdayService.sendGreetings(XDate("2008/01/01"), "localhost", NONSTANDARD_PORT)
+        birthdayService.sendGreetings(XDate("2008/01/01"))
 
         Assert.assertEquals("what? messages?", 0, mailServer.receivedEmailSize.toLong())
     }
