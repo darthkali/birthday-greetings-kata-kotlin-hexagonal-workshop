@@ -1,4 +1,4 @@
-package it.xpug.kata.birthday_greetings
+package it.xpug.kata.birthday_greetings.domain.model
 
 data class Employee(
     val firstName: String?,
