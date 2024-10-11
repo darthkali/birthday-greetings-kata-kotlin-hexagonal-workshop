@@ -1,6 +1,7 @@
 package it.xpug.kata.birthday_greetings.domain.service
 
 import it.xpug.kata.birthday_greetings.domain.model.XDate
+import it.xpug.kata.birthday_greetings.domain.port.inbound.ForGreetingEmployee
 import it.xpug.kata.birthday_greetings.domain.port.outbound.ForLoadingEmployees
 import java.util.*
 import javax.mail.Message
@@ -9,8 +10,8 @@ import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 
-class BirthdayService(private val forLoadingEmployees: ForLoadingEmployees) {
-    fun sendGreetings(xDate: XDate, smtpHost: String, smtpPort: Int) {
+class BirthdayService(private val forLoadingEmployees: ForLoadingEmployees): ForGreetingEmployee {
+   override fun sendGreetings(xDate: XDate, smtpHost: String, smtpPort: Int) {
         val employeeList = forLoadingEmployees.loadEmployees()
 
         employeeList.forEach { employee ->
